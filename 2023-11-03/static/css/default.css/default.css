@@ -34,7 +34,14 @@ body{
 }
 .slide{width:100%;}/*부모태그인 #slidWrap의 너비와 같아진다.*/
 .LeftMove, .rightMove{
-    width:50px;  
+    width:50px;
+    font-size:30px;
+    text-align:center;
+    color:#fff;  
+}
+
+.leftMove i:hover , .rightMove i:hover{
+    cursor:pointer;
 }
 .slideImage{
     width:500px;
