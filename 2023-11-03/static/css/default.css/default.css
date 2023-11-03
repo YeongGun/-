@@ -7,10 +7,13 @@ body{
     border-collapse" collapse;
 }
 #wrap tr td{
-    border:1px solid #000;
+   /* border:1px solid #000; */
 }
 
-
+#header{
+    border-radius: 10px;
+    height:80px;
+}
 
 
 
@@ -48,4 +51,18 @@ body{
 }
 .slideImage img{ width:100%}
 
+.drinkMenu{
+    list-style:none;
+    font-size:20px;
+    font-weight:800;
+    cursor:pointer;
+}
+.drinkMenu li{
+    height:35px;
+    border-bottom:1px solid#ffe;
+    width:150px;
+}    
 
+#eventWrap{
+    height:350px;
+}
