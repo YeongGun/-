@@ -1,0 +1,44 @@
+body{
+    background-color:#fede29;
+    margin:0;
+}
+#wrap{
+    width:1200px;
+    border-collapse" collapse;
+}
+#wrap tr td{
+    border:1px solid #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+#slsdewrap{
+    width:600px;
+    height:700;
+}
+#drinkWrap{
+    width:600px;
+}
+
+.menuItem{
+    /* width:100px; */
+    padding-left: 50;
+}
+.slide{width:100%;}/*부모태그인 #slidWrap의 너비와 같아진다.*/
+.LeftMove, .rightMove{
+    width:50px;  
+}
+.slideImage{
+    width:500px;
+}
+.slideImage img{ width:100%}
+
+

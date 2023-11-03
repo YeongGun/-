@@ -28,3 +28,17 @@
 .detalicell, incomeCell, .expenseCell, .paymentCell{
     text-aling: center;    
 }
+.dateCell{
+    background-color: yellow;
+}
+.incomeCell{
+    background:rgb(red, rgb(96, 246, 139), blue)
+}
+.expenseCell{
+    background:rgb(165, 29, 29)
+    color:#fff;
+}
+.detailcell:hoverP{
+    background:#ddd;
+    
+}
