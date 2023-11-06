@@ -1,0 +1,81 @@
+<!-- div2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            width:500px;
+            height:350px;
+            background:paleturquoise;
+            padding-top: 200px;
+            box-sizing: border-box;
+        }
+        #div1child1{
+            width: 100px;
+            height: 100px;
+            background:red;
+            color: #fff;
+            margin-left:250px;
+           
+            
+        }
+        #div1child2{
+            width:100px;
+            height:100px;
+            background:blue;
+            color:#fff;
+            margin-left:50px;
+            margin-top:0px;            
+            }
+
+            #div2{
+                width:200px;
+            }
+            #div2 img{
+                width:100%;
+                opacity: 0.5;
+                transition: all 1s ease;
+                /* 드래그시 투명하게 */
+            }
+            #div2 h2{
+                margin-top:-50px;}
+                
+                #div2:hover img{
+                    opacity: 1;
+                }
+                
+    #div3{
+    width:200px;
+    height:300px;
+        background:url(./static/images/파일명.);
+        background-size:cover; /*contain도사용가능*/
+        background-position: center; /*배경이미지 위치조절(상,중,하,좌,우)*/
+        background-repeat: no-repeat; /*배경이미지 반복 여부*/
+        }
+</style>
+
+
+</head>
+<body>
+    
+    <div id="div1">
+        <div id="div1child1">child1</div>
+        <div id="div1child2">child2</div>
+    </div>
+
+    <div id="div2">
+        <img src="../static/images/다운로드.png" alt="메이크업">
+        <h2>메이크업사진</h2>
+
+</div>
+
+
+
+</div>
+
+</body>
+</html>
