@@ -9,12 +9,17 @@ body{
 
 #header{
     width:100%;
+    padding:20px 0;
+    position:sticky;
+    top:0;
+    z-index: 100;
+    background-color: #fff;
 }
 .logoWrap{ width:100px; height:50px;}
 
 .menuWrap{
     position:absolute;
-    left:100px;
+    left:120px;
     top:0px;
 }
 .nav{
