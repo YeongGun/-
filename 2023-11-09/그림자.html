@@ -32,9 +32,13 @@
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
             overflow: hidden;
+           
         }
             
-           .image img{ height:150px; }
+           .image img{ 
+            transform: scale(1);
+            transition: transform 3s ease-in;
+            height:150px; }
            .image:hover img{
             transform: scale(1.2);   /*넓이 높이를 균형잇게 커지게해서 부드럽게 커진다*/
            }
@@ -67,8 +71,8 @@
         <img src="./static/images/다운로드.jfif" alt="자연경관">
     </div>
     <div class="detail">
-        <div calss="cap">계단</div>
-        하늘
+        <div calss="cap">사진</div>
+        고양이
 
     </div>
 </body>
@@ -78,7 +82,19 @@
     transform : 텍스트, 이미지, 도형, 영상 등에 변화를 주기 위한 속성 
                 기울기(matirx), 크기(scale), 회전(roate) 이동(translate) 효과를 부여 할 수 있다.
     
+    transition : 사용 할때는 반드시 처음상태값과 변화된 마지막값을 알려줘야한다.
+    박스의 너비가 변화는 과정을 transition으로 표현한다면
+    처음 너비가 얼마인지 값이 있어야 하고 , 변경된 너비값도 있어야한다.
+
     transition : 상태의 변화를 동적으로 표현
-                 지정한 시간에 맞춰 변화되는 과정을 표현             
+                 지정한 시간에 맞춰 변화되는 과정을 표현    
+                 
+    transition-delay 시간 설정 초단위 (s) transition 효과가 시자갛기전에 대기 시간 
+    transition-duration 시간 설정 초단위 (s), transition효과가 진행되는 시간 
+    transition-preoperty 변화되는 css속성 지정 (예, width, height, left, top, background등)
+                            모든 css속성 지정은 all 이다.
+                            
+    transtition-timing-function transition 효과가 속도 설정 
+                                ease, ease-in, ease-out, ease-in-out, linear, step-end
 
 -->
