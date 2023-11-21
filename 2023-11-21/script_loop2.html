@@ -205,6 +205,55 @@ if ( a!=b && a!=c && a!=d && b!=c && b!=d && c!=d){
                 }
              }
              
+            var b1 = Math.floor(Math.random()*9)+1;
+            var b2 =0, b3=0;
+            while( (b1==b2 && b1==b3 || b2==b3) ){
+                b2= Math.floor(Math.random()*9)+1;
+                b3= Math.floor(Math.random()*9)+1;
+            }
+
+            var out="";
+            function find(){
+                var n1 = Number($("#num1").val());
+                var n2 = Number($("#num2").val());
+                var n3 = Number($("#num3").val());
+                var str=0, ball=0;
+                if(n1 == b1) str++;
+                if(n2 == b2) str++;
+                if(n3 == b3) str++;
+                if(n1 == b2 || n1 == b3) ball++;
+                if(n2 == b1 || n2 == b3) ball++;
+                if(n3 == b1 || n3 == b2) ball++;
+                show += `${n1} ${n2} 3{n3} 결과 : ${str}스트라이크 ${ball}볼 ${-str-ball}아웃 <br>`;
+                $("#result").html(show);
+            }
+            /*
+            과제 !!
+            인구조사 !!
+            가족구성원의 나이를 입력 하기
+            0을 입력하면 더이상 입력 처리가 안된다.
+
+            입력이 끝나면 결과 출력 
+            결과 출력 내용은 
+            노인: 65세 이상
+            성인: 20세 ~64
+            청소년 : 8세 ~19
+            아동: 1세~7세
+
+            총원 10명 :노인  2명 ,  성인5명 , 청소년 2명 아동 3명
+
+
+
+
+            */
+    
+    
+            function find(){
+
+    }
+
+
+
     </script>
 <style>
     input{ width:50px;}
