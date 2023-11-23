@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing:border-box;
+}
+#game_wrap{
+    width:1000px;
+    margin:0 auto;
+    font-size:40px;
+    position:relative;
+}
+
+#game_board{
+    width:100%;
+    position:relative;
+    margin-bottom: 30px 0;
+}
+#board{
+    border-collapse: collapse;
+    width:100%;
+}
+.numBox{
+    border:1px solid black;
+    width:20%;
+    height:200px;
+    text-align: center;
+}
+.numBox:hover{
+    background:crimson
+
+}
+
+#result_modal{
+    display:none;
+}
