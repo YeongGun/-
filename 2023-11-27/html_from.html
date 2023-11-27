@@ -1,0 +1,45 @@
+<!-- html_from.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- from 데이터 전송을 위한 태그 (from태그가잇어야 서버에 전달가능!)
+        from 속성 
+        이름지어주기 - id, class, name
+        method -  전송하는방법 
+                get :  데이터를 있는 그대로 서버에 전달(데이터 노출 중요한건 post를써서 함호화시키고 별상관없는건 get)
+                post :  데이터를 변환 하여 서버에 전달 (압축 , 암호화)
+        action - 데이터 전송 할 곳
+        enctype - 데이터 형식 지정 (이미지 , 동영상 ,  음악 등등)
+                : multipart/from-data       
+        placeholder= 기본글씨보다 연한 글씨로 한글자라도 입력시 사라진다 
+            데이터가 입력,선택 된 태그에 반드시 name이 존재해야 데이터 전송가능
+            -->
+
+    <from method="get" action="login_check.jsp">
+        <input type="text" name="text1" placeholder="이름입력"><br>
+        <input type="password" name="pass"> <br>
+        <input type="number" name="age" min="1" max="10"> <br>
+        <input type="color" name="mycolor"> <br>
+        <input type="date" name="today" value="2023-11-20" min="2003-01-01" max="2023-11-20"> <br>
+        <input type="month" name="todayMonth"> <br>
+        <input type="datetime-local" name="todaytime"> <br>
+        <input type="email" name="email"> <br>
+        <input type="image" name="mying" src=" https://loremflicker.com/50/50"> <br>
+        <!-- 이미지로 전송버튼을 구성 -->
+    </from>
+</body>
+</html>
+
+<!--
+    월 - html from - style, javascript로 값 가져오는 방법
+    화 - css  animation, javascript 
+    수 - mediaqurey , grid
+    목 - javascript - function
+    금 - javascript = function
+-->
