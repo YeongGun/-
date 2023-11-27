@@ -21,7 +21,7 @@
             데이터가 입력,선택 된 태그에 반드시 name이 존재해야 데이터 전송가능
             -->
 
-    <from method="get" action="login_check.jsp">
+    <from method ="get" action = "login_check.jsp">
         <input type="text" name="text1" placeholder="이름입력"><br>
         <input type="password" name="pass"> <br>
         <input type="number" name="age" min="1" max="10"> <br>
@@ -38,6 +38,37 @@
         <input type="time" name="time"> <br>
         <input type="week" name="thisweek"> <br> <!--주단위로 설정가능한 week태그-->
         <input type="tel" name="mytel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}]"> <br>
+        <input type="url" name="nowurl"> <br>
+        <input type="range" name="width" min="100" max="200" step="10"> <br>
+        <input type="checkbox" name="interest" value="축구">축구
+        <input type="checkbox" name="interest" value="게임">게임
+        <input type="checkbox" name="interest" value="영화">영화 <br>
+        <!-- checkbox는 여러데이터를 그룹화 하여 사용하는 input 태그이다.
+            반드시 그룹으로 묶어 주기위해서는 name 이 같아야한다 .-->
+        <input type = "radio" name="gender" value="남"> 남자
+        <input type = "radio" name="gender" value="여"> 여자
+        <input type = "file" name="youimg">                <!-- 파일선택 버튼을 만들어주고 눌럿을경우 열린다 -->
+        <input type = "hidden" name="ids" value="1">
+
+        <textarea name="memo"></textarea>
+        <select name=" game" multiple>
+            <option value="lol">리그오브레전드</option>
+            <option value="gta">gta</option>
+            <option value="fifa">피파온라인</option>
+        </select>
+        <input list="lang">
+        <datalist id="lang" name ="language">
+            <option value="thml">html</option>
+            <option value="css">css</option>
+            <option value="java">java</option>
+        </datalist>
+    </from>
+
+    <from oninput=" res.value= parseInt(a.value)+ parseInt(b.value)">
+        <input type="number" id="a" name="a"> +
+        <input type="number" id="b" name="b"> =
+        <output name="res" for="a b"></output>
+
     </from>
 </body>
 </html>
