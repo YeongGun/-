@@ -11,6 +11,14 @@ $(function(){
         $(".ability_list").prop('checked', false);
     });
     
+    $(".ability_list").on("click",function(){
+        var chk_count = $(".ability_list:checked").length;//능력 체크박스에 체크된 갯수
+        var all_check = $(".ability_list").length; //능력 체크박스 총 갯수
+        if( chk_count == all_check)// 체크된 갯수와 총 갯수를 비교 
+        $("#all").prop("checked",true);// 체크갯수와 총 갯수가 같다면 전체 체크박스에 체크
+    else
+        $("#all").prop("checked",false);//체크갯수와 총갯수가 다르면 전체 체크박스에 체크해제 
+    })
     
     $("#mypw").on("keyup", function(){
         if( $(this).val().length < 6 || $(this).val().length > 12){
@@ -41,6 +49,37 @@ $(function(){
     //     $(this).val(num);
     // }
     $("#join").on("click",function(){
+
+        $(function(){
+
+            //select 선택 option 변경 하기
+            $("#route option").eq(2).prop("selected,true");
+
+
+            // 전부 체크 체크박스에  체크시 전체 체크로 변하게 또는 반대상황
+            $("#all").on("click",function(){
+                let isCheck = $(this).is(":checked");
+                if(isCheck)
+                $(".ability_list").prop('checked',true);
+                else
+                $(".ability_list").prop('cheked',false);
+            })
+        })
+
+        $("#join").on("click",function(){
+
+            // 파일업로드 확장자 검증
+            console.log( $("#myface)"[0].files[0] );
+            var fanme = $("#myface")[0].files[0].name ; 
+            if( !fanme.toLowerCase().includes(".png") )
+                alert("png 형식의 이미지만 가능합니다.");
+        })
+             
+
+
+        //select 값 가져오기 
+        var v = $("#route").val(); // $("#route option:selected").val();
+        alert(v);
         
         //var chk = $(".alility_list").eq(0).is(":checked");
         //alert( chk );
