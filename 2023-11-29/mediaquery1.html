@@ -1,0 +1,39 @@
+<!-- mediaquery1.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+
+    <style>
+        #box{
+            width:1000px; height:500px;
+            background: pink;
+        }
+        @media all and (max-width:700px){    /* 브라우저 화면이 700일때 네모칸이 사이즈가 바뀐다 */
+            #box{ width:200px; height: 700px;}
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="box"></div>
+
+</body>
+</html>
+
+<!--
+    mediaquery
+        media(미디어 타입) - 기기의 종류 (화면) , 대중 전달용 매체
+        pc용 화면 - 모니터 , 모바일 화면, 태블릿 화면 , 전광판 , 키오스크 등등
+
+        - 반응형 페이지를 만들때 만힝사용된다.
+
+        @mediaquery
+
+-->
