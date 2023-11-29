@@ -8,12 +8,35 @@
     <title>Document</title>
 
     <style>
+        /*
+            미디어 타입 지정 
+            all - 모든 미디어 장치 
+            screen - 컴퓨터 기기 , 모바일 기기 
+            print - 인쇄 용 기기 
+            tv - tv 와 같은 장치 
+            projection - 프로젝터 용 기기 
+            braille - 점자 표시 장치 
+
+            조건
+            max- , min- deivce-
+            max-width 최대너비 , min-width 최소너비 
+            max- max설정값 이하 일 경우 조건 충족 (참) 되어야 미디어 쿼리 실행 
+            min - min 설정값 이상 일경우 조건 충족(참) 되어야 미디어 쿼리 실행 
+            device- device 설정값에 정확하게 맞아 떨어질경우 참 
+            ( 모바일 버전 부터 제작시 min , PC버전 부터 제작시 max )
+            orientation : 화면 회전 , (값 : portrait, landscape ) 
+             */
+        
+        
         #box{
             width:1000px; height:500px;
             background: pink;
         }
-        @media all and (max-width:700px){    /* 브라우저 화면이 700일때 네모칸이 사이즈가 바뀐다 */
+        @media screen and (max-width:700px){    /* 브라우저 화면이 700일때 네모칸이 사이즈가 바뀐다 */
             #box{ width:200px; height: 700px;}
+        }
+        @media all {
+            #box {width:200px; height:700px;}
         }
 
     </style>
