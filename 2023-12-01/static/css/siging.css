@@ -1,0 +1,53 @@
+#main{
+    width:1200px;
+    margin:0 auto;
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:100px 0;
+}
+#loginWrap{
+    width: 500px;
+    position:relative;
+}
+#loginWrap .logo{
+    width:200px;
+    text-align: center;    
+}
+#loginWrap .title{
+    text-align: center;
+    padding:15px 0;
+}
+#loginWrap .loginBox{
+width:100%;
+padding:20px 0;
+position: relative;
+}
+#loginWrap .loginBox .login{
+    line-height: 50px;
+    width:100%;
+}
+#loginWrap.memberNav{
+
+}
+.login .loginId, .login .loginPw{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    row-gap:10px;
+}
+.loginId #id{
+    order:1;
+    width:80%;
+    height:55px;
+}
+
+.loginBt{
+    width:100%;
+    padding:10px 0;
+}
+#loginWrap .memberNav{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,46 @@
+#header #nav .menu{
+    width:900px;
+    position:relative;
+}
+#header #nav .menu .menuList{
+    width:100%;
+    position:relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.menuList .menuItem{
+    cursor: pointer;
+    position:relative;
+    padding:20px 5px;
+}
+.menuList .menuItem .subMenu{
+    display:none;
+    position:absolute;
+    top:40px;
+}
+.menuList .menuItem .subMenu{
+    position:absolute;
+    width:130px;
+    font-size:1rem;
+}
+.menuList .menuItem .subMenu .subItem{
+    position:absolute;
+    line-height: 0;
+    top:-10px;
+}
+.menuList .menuItem:hover .subMenu{
+    opacity: 1;
+}
+.menuList .menuItem:hover .subMenu .subItem{
+    Line-height:30px;
+    top:40px;
+    position:relative;
+}
+#footer{
+    width:100%;
+    background:#383e53;
+    padding:70px 0 50px 0;
+    text-align: center;
+}
