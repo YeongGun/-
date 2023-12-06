@@ -18,12 +18,15 @@ function paint(){
     color = div.css("background");
     //alert( color);
 
+    div.css("border","3px solid red");
     // 내가 클릭한 색상 div에 빨간색 3px 테두리 씌우기 
     // 다른 색을 클릭하면 현재 클릭한 div에 만 테두리 표시하기
 
 }
 
 function paint(){
+    opener.$("#draw>talble").css("background",color);
+    window.close()
     // 부모창의 table 배경색으로 내가 선택한 색이 적용 되게 하기
     // 적용 된후 현재 색상 선택 창은 닫기 
 }

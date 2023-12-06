@@ -18,7 +18,12 @@ table += "</tr>";
     }
     table += "</table>";
 
-// $("#")
+// $("#draw",openner.document)
+opener.$("#draw").html(table);
+
+opener.$("#size").attr("disabled",false);
+
+window.close();
 
 
     opener.document.getElementById("draw").innerHTML="aaaa"; //부모를 지칭하는것은 오프너임 

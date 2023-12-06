@@ -1,5 +1,8 @@
 
 $(function(){
+    $("#size").attr("disabled",true);
+    $("#color").attr("disabled",true);
+    
     $("#make").on("click", open());
         openPage("make");
     

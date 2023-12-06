@@ -1,0 +1,45 @@
+<!-- object1.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var a = "김유신";
+        // 객체 - 의사나 행위가 미치는 대상
+        //       의사- 무엇을 하고자 하는 생각
+        //      행위 - 행동 
+// 자바스크립트에서 객체는 key: value 1:1 로 표현 된다.
+// key는 객체 내부에서 유일한 명칭이여야 한다.
+        var obj1 = {"이름":"김유신", age:23 , 직업:"군인" ,"이름":"이순신"};
+
+// function을 사용한 생성자 함수라느넋으로 갱체를 생성한다.
+function apple(){ //생성자 함수 
+    this.name = "노재홍";
+    this.age = 20;
+    this.birth = function(){ document.write( 2023-this.age ); }
+}
+let you = new Array();
+you.push(  new apple() );
+you.push( new apple() );
+you.push( new apple() );
+document.write( you[0]["name"] + " " +  you[0].age );
+
+// html 태그들의 style과 id,class, 이벤트 들을 정하여 태그 생성을 할 수 있다.
+// 데이터들을 보다 관리가 용이한 구조로 만들어 사용할 수있다.
+
+// 이름 - key , 김유신 - value
+
+
+
+document. write( you["name"] + " " + you.age );
+document.write( obj1['이름']);
+document.write( obj1['age']);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
