@@ -12,7 +12,7 @@ memo.prototype.create= function(){
             <b>${this.num}</b>
             <h3>${this.content}</h3>
             <div style='width:70px;background:${this.importance.color}'>${this.importance.text}</div>
-            <div class='del'><i class="bi bi-trash"></i></div>
+            <div class='del' data-index='${i}'class="bi bi-trash"></i></div>
      </div>`
 }
 
@@ -70,26 +70,77 @@ function save(){ // 등록버튼 클릭하면 동작함수
     //prepend - 태그의 자식으로 앞에 추가 (자식)
     // before - 현재 선택한 태그 앞에 추가 (형제)
 
-    $(".memoList").prepend(  memo_list[last].create()   );
+    $(".memoList").prepend(  memo_list[last].create( num-1 )   );
     num++;  
 
     // 삭제 아이콘 클릭 기능 적용
     $(".del").on("click", del_memo );
 
+    var dl = document.getElementsByClassName("del");
+    for(var i in dl){
+        dl[i].addEventListener("click", del_memo);
+    }
+
     console.log( text+ "  "+ 중요도 );
 
 }
-function del_memo(){
-    var div = $(this); //삭제하고자 클릭한 아이콘의 div 
+let f=true;
+function del_memo( n ){
+    
+    for (var i in memo_list){ // memo 객체저장된 배열 전체 조회
+        if(n == memo_list[i].num){ //삭제할 번호 와 일치하는 memo각체 찾기 
+            // console.log(memo_list[i]+" "+ i);
+            // $(".memoItem").eq(i).remove();
+            memo_list.splice(i,1);  //배열에서 삭제 
+        }
+    };
+    
+    // var div = $(this); //삭제하고자 클릭한 아이콘의 div 
+    // var index = div.data("index");
+    $(".memoList").empty(); //목록 태그 전체 비우기 
+    for (var v of memo_list){ // memo_list 배열에 있는 memo 객체 다시출력 
+        $(".memoList").prepend( v.create( v.num ) );
+    }
+    // memo_list.splice(index,1);
+    for( var i=index; i<memo_list.length-1; i++){
+        memo_list[i] = memo_list[i+1];
+    }
+
+    $(".memoList").empty();
+    $.each( memo_List, function ( idx, item){
+        $(".memoList").prepend( item.create(idx) );
+    } );
+    $(".del").on("click", del_memo );
+    
+    //console.log( index );
+    
+    
+    
     // parent() : 바로위의 부모 태그 가져오기
     // parents() : 위에 있는 모든 부모 태그들
-    var parent = div.parent();
+    //var parent = div.parent();
+
+    var idx=0;
+    $.each( $(".memoItem"), function(i){
+        if( $(".memoItem").eq(i) === parent) idx=i;
+    })
+    console.log( idx);
 
     // empty()  : 선택한 태그안에 전부를 비우기
     // remove()  : 선택한 태그안에 전부 를 삭제하고 자기 자신도 삭제 된다.
+    // unwrap() : 선택한 태그의 부모를 삭제 
     parent.remove();
 }
+    
+/*
 
+맵만들어 오기 !!
+어떤맵이냐면 !!
+가로 7칸, 세로 7칸 의 정사각형 
+
+바로바로 !! ex:브루마블 7칸 
+
+*/
 
 
 
