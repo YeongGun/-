@@ -1,0 +1,39 @@
+<!-- json1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    
+<script>
+var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onload = function(){ // 외부 연결  성공시 실행되는 함수 
+    var student = JSON.parse(this.responseText );
+    alert( student.name );
+        // alert( this.responseText );
+    }
+    xmlHttp.open("GET", "./data/student.json"); // 외부주소  열기 , open( 전송방식, 주소 )
+    // 전송 방식 - GET , POST
+    // 주소 - 웹 주소 또는 로컬파일경로
+    xmlHttp.send(); 
+</script>
+
+</head>
+<body>
+    <div id="view">
+        <div class="nameview">
+            이름 : <div id="name"></div>
+        </div>
+        <div class="ageview">
+            나이 : <div id="age"></div>
+        </div>
+    </div>
+</body>
+</html>
+<!--
+    json - javascript Object notaion 
+-->
