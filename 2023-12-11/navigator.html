@@ -8,11 +8,56 @@
 
     <script>
         // navigator - 브라우저의 정보를 담고 있다.
-        // 
+        // userAgent - 브라우저 이름, 버전 플랫폼 , 운영체제 
+
+        // var agent = navigator.userAgent;
+        // alert( agent );
+
+        // if( agent.toLowerCase(). includes("windows")){
+        //     alert("윈도우 pc로 접속 하였습니다.")
+        //     //윈도우용 페이지 이동
+        // }else if(agent.toLowerCase().includes("android")){
+        //     alert("안드로이드 모바일 접속");
+        //     // 모바일용 페이지 이동
+        // }else if (agent.toLowerCase().incluses("ipad")){
+        //     alert("ipad로 접속");
+        // }else if(agent.toLowerCase().includes("iphone")){
+        //     alert("아이폰 접속");
+        // }
+        // // 접속 위치 정보 
+        // navigator.geolocation.getCurrentPosition( show );
+
+        // // 지속적으로 사용자위치를 요청 -watchPosition();
+        // function show(position){
+        //     alert( position.coords.latitude +" "+ position.coords.longitude )
+        // }
+        
+        function getmap(){
+
+            var image =document.createElement("img");
+            navigator.geolocation.getCurrentPosition(setMap);
+            return image;
+        }
+        function setMap(pos){
+            var latitude = pos.coords.latitude;
+            var longitude = pos.coords.longitude;
+        }
+            var accuracy = pos.coords.accuracy; // 미터 단위의 정확도
+
+            // 구글지도에 대한 정적 이미지 
+            var url = "https://maps.google.com/maps/api/staticmap"+
+                    "?center="+latitude+","+longitude+
+                    "&size=640x640&sensor=true";
+
+            image.scr=url;
+    
+
+getmap();
     </script>
 
 </head>
 <body>
     
+    c7ae21863e49f2709ae529b7e43de31a
 </body>
 </html>
