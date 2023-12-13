@@ -1,35 +1,4 @@
 // board.js
-
-const zone_name=[
-    "복지기금","화성","성남","창원","제주","용인","수원","울산",
-    "인천공항","청주","광주","부천","대구","남양주","인천","포항",
-    "복지기금납부","천안","부산","전주","서울","안산","대전",
-    "무인도","안양","김해","평택","시흥","파주","의정부","김포","출발"
-];
-const zone_color=["#FF2424","#53C14B","#FFBB00","#121212"]; // 각 면의 색상
-const land_purchase=[  // 각 도시의 매입 가격 ( 만단위)
-    0, 25, 27, 26, 34, 28, 27, 39,
-    0, 16, 42, 20, 45, 19, 48, 27, 
-    0, 21, 52, 20, 80, 22, 120,
-    0, 12, 10, 15, 12, 9, 9, 7, 0
-
-];
-
-const bg_image= [ // 모서리구역의 배경이미지
-    "출발.jpg", "무인도.jpg","복지기금.jpg","인천공항.jpg"
-];
-
-// 각 구역의 객체 생성자 함수
-//  구역 이름, 토지매입가격, 소유자, 색상, 기능(모서리부분), 이미지
-function zone_Object( name, purchase, owner, color, func, image){
-    this.name=name;
-    this.purchase=purchase;
-    this.owner=owner;
-    this.color=color;
-    this.func=func;
-    this.back=image;
-}
-
 //플레이어 생성자 함수
 function player(num, color){
     this.num=num;
@@ -44,31 +13,7 @@ let fund = 0; // 사회복지기금 모금 금액 저장 변수
 let island_ = new Array(); // 무인도에 도착한 플레이어
 let zone = new Array();//각 구역의 객체 저장 배열
 let player_list = new Array();// 게임 참가자
-
 // 함수정의
-function zone_create(){
-    for( var i=0; i< zone_name.length; i++){
-        var color = zone_color[0];
-        if( i>=0 & i<=7)
-            color = zone_color[2];
-        if( (i>=8 & i<=23) & i%2==0 )
-            color = zone_color[3];
-        if( (i>=8 & i<=23) & i%2==1 )
-            color = zone_color[1];
-
-        var image = "";
-        if( i == 0) image = bg_image[2];
-        if( i== 8) image = bg_image[3];
-        if( i== 23) image = bg_image[1];
-        if( i== 31) image=bg_image[0];
-
-       zone.push( new zone_Object(
-        zone_name[i] , land_purchase[i], "", color, "", image
-       )  );
-    }
-    console.log(zone);
-}
-
 // 구역객체들을  zone 클래스 div에 적용하기
 function zone_draw(){
     $.each( zone, function( idx, obj){
@@ -80,17 +25,20 @@ function zone_draw(){
             $(".zone").eq(idx).children(".zone_name").text( obj.name);
             $(".zone").eq(idx).children(".zone_color").css("background-color",obj.color);
         }
-
-
          // 각 구역의 번호 부여
         $(".zone").eq(idx).attr("data-num",obj.num);
     });
 }
 function game_init(){
     var pc = Number( $("#player_number").val() );
+
     $("#game_state").html("<h3>게임현황</h3>");
+
+    var pcolor=["#ff0000","#00ff00","#FFB2F5","#FFBB00","#0054FF"];
+
     for(var i=1; i<=pc; i++){
         player_list.push( new player( i, "#ff0000" ) );
+        player_list.push( new player( i, pcolor[i-1] ) );
         $("#game_state").append(
             `<div class='ps'>
                 <b class='pnum'>${i}</b>
@@ -102,15 +50,13 @@ function game_init(){
             </div>`
         );    
     }
-
     $("input[type=color]").on("change", change_pcl );
     $("#game_state").show();
     $("#set_player").hide();
-
     // 게임 플레이어수에 맞는 말 만들기
     // svg -scalable vector graphics (수학공식을 통해 이미지를 저장,표시)
     // <i class="fa-solid fa-jet-fighter"></i>
-
+    
     for(var i=0; i<player_list.length; i++){
         var gamer = player_list[i];
         var zone_location = find_location( gamer.location );
@@ -121,32 +67,30 @@ function game_init(){
             </div>
         `;
         $(".zone").eq(zone_location).append(tag);
-
         overlap(zone_location);
     }
-
     create_dice(); //주사위 생성
 }
 
 function create_dice(){ // 화면에 주사위 나타내기
+    var dice =``;
     var dice =`
     <div id='dice_wrap'>
         <div class='dice'>
-            
-        <div class='dice1' src='./static/images/dice1.png'>
-            
-        </div>;
-        <div class='dice2'src='./static/images/dice4.png'>
-
+            <div class='diceImg'>
+                <img id='dice1' src='./static/images/dice1.png'>
+            </div>
+            <div class='diceImg'>
+                <img id='dice2' src='./static/images/dice4.png'>
             </div>
         </div>
-    </div>
         <div class='dicebt'>
-            <button onclick='rolling()'>굴리기</button>
+            <button onclick='rolling(this)'>굴리기</button>
         </div>
     </div>
     `;
     $(".center").append(dice);
+}
 
 
 function overlap(location){ // 말이 생성되거나 이동했을때 위치에 다수의말이 있다면
@@ -162,7 +106,6 @@ function overlap(location){ // 말이 생성되거나 이동했을때 위치에 
         }
     }
 }
-
 function find_location( n ){// 플레이어 말이 표시될위치 또는 이동할 위치찾기
     var index=0;
     $(".zone").each( function( idx, item ){ 
@@ -177,13 +120,11 @@ function find_location( n ){// 플레이어 말이 표시될위치 또는 이동
     });
     return index; // data-num 과 n 의 값이 일치하는 태그의 위치넘기기
 }
-function change_pcl(){
-
 function change_pcl(){ // 플레이어가 자신의 말 색상을 변경할경우 실행
     var new_color = $(this).val();
     var num = Number($(this).attr("id").substring(3));  // attr 은 태그의속성 - id,class,name 등등
     var gamer = player_list[num-1]; // 색상 변경한 플레이어객체
-}
+    
     gamer.color=new_color;
     //자신의 말 찾기, num변수에는 플레이어의 번호가저장되있다.
     for( var i=0; i<$(".meeple").length; i++){
@@ -192,12 +133,8 @@ function change_pcl(){ // 플레이어가 자신의 말 색상을 변경할경�
             break;//플레이어말 찾아서 색변경 했으니까 반복문 종료
         }
     }
-
 }
-
-
 $(function(){
-    zone_create();
     // 현재상황 -  json파일내용은 어제다루었던 zone배열안의 내용과 같다.
     // getJSON으로 json파일을 읽어와서 zone배열에 저장 
     //  zone 배열의 내용은 어제와 동일하다.
@@ -211,47 +148,51 @@ $(function(){
     //  async를 비동기함수 앞에 붙여준다.
     //  await는 비동기 처리 앞에 붙여준다.
     //  async function a(){   await $.getJSON( );  }
-
     $.getJSON("./data/city.json" , function(data){ 
         zone = data;
         console.log( zone );
         zone_draw();
     });
-
-    zone_draw();
-
+    
     $("#enroll").on("click", game_init );
     $("#player_number").on("change", function(){
         $(this).next().text( $(this).val() + "명");
     } );
     $("#player_number + label").text(2+"명");
-
-    $("input[type=color]").on("change", change_pcl );
-
+    
 });
 
+function func_link(){
+    zone[0].func=welfare ;
+    zone[8].func=airport ;
+    zone[16].func=fundpayment;
+    zone[23].func=island;
+    zone[31].func=complete; 
+}
+function welfare(gamer){ // 위치에 도착한 플레이어가 복지기금 전액 가져가기 
+    alert(`복지기금 ${fund}만원 받았습니다.`)
+    gamer.money += fund; // fund변수는 복지기금 저장해두는 곳
+    fund=0;
+    $("#pm"+gamer.num).text( gamer.money+"만원");
+}
+function airpot(gamer){ // 플레이어가 원하는곳으로 이동 (마우스 클릭)
+    
+}
+function fund(gamer){// 플레이어의 돈을 복지기금으로 지불 (20만원)
+    gamer.money -= 20;
+    fund += 20;
+    $("#pm"+gamer.num).text( gamer.money+"만원");
+}
+function island(gamer){// 3턴동안 탈출 불가
 
+}
+function complete(gamer){ // 출발지를 도착하거나 통과하면 20만원 보너스 
+
+}
 
 // 과제    -  각 구역의 객체를 json 으로 작성 해오세요.
 //      city.json   으로 작성 하세요.
-
 // zone_Object 생성자 함수로  생성한 객체들을 json파일로 작성 
-// zone_Object 생성자 함수로  생성한 객체들을 json파일로 작성 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 const zone_name=[
     "복지기금","화성","성남","창원","제주","용인","수원","울산",
