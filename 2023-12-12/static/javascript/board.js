@@ -37,7 +37,6 @@ function game_init(){
     var pcolor=["#ff0000","#00ff00","#FFB2F5","#FFBB00","#0054FF"];
 
     for(var i=1; i<=pc; i++){
-        player_list.push( new player( i, "#ff0000" ) );
         player_list.push( new player( i, pcolor[i-1] ) );
         $("#game_state").append(
             `<div class='ps'>
@@ -175,10 +174,10 @@ function welfare(gamer){ // 위치에 도착한 플레이어가 복지기금 전
     fund=0;
     $("#pm"+gamer.num).text( gamer.money+"만원");
 }
-function airpot(gamer){ // 플레이어가 원하는곳으로 이동 (마우스 클릭)
+function airport(gamer){ // 플레이어가 원하는곳으로 이동 (마우스 클릭)
     
 }
-function fund(gamer){// 플레이어의 돈을 복지기금으로 지불 (20만원)
+function fundpayment(gamer){// 플레이어의 돈을 복지기금으로 지불 (20만원)
     gamer.money -= 20;
     fund += 20;
     $("#pm"+gamer.num).text( gamer.money+"만원");
