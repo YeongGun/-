@@ -4,15 +4,17 @@ function player(num, color){
     this.num=num;
     this.color=color;
     this.money=100; // 초기 게임머니 100만원
-    this.zone=new Array(); // 매입 한 토지를 배열로 저장
+    this.zone=0; // 매입 한 토지 수량 저장
     this.drift_turn=0; // 무인도 남은 턴
     this.location=0;// 현재위치
+    this.파산=false; // 자금부족으로 파산 한경우 true
 }
 // 전역변수
 let fund = 0; // 사회복지기금 모금 금액 저장 변수
 let island_ = new Array(); // 무인도에 도착한 플레이어
 let zone = new Array();//각 구역의 객체 저장 배열
 let player_list = new Array();// 게임 참가자
+let 탑승객 = 0;// 인천공항에 도착한 플레이어
 // 함수정의
 // 구역객체들을  zone 클래스 div에 적용하기
 function zone_draw(){
@@ -31,20 +33,17 @@ function zone_draw(){
 }
 function game_init(){
     var pc = Number( $("#player_number").val() );
-
     $("#game_state").html("<h3>게임현황</h3>");
-
     var pcolor=["#ff0000","#00ff00","#FFB2F5","#FFBB00","#0054FF"];
-
     for(var i=1; i<=pc; i++){
         player_list.push( new player( i, pcolor[i-1] ) );
         $("#game_state").append(
             `<div class='ps'>
                 <b class='pnum'>${i}</b>
                 <input type='color' id='pcl${i}' value='${player_list[i-1].color}'>
-                <div class='steate'>
+                <div class='state'>
                     자금 : <b id='pm${i}'>${player_list[i-1].money}만원</b>
-                    보유도시 : <b id='pcity${i}'>${player_list[i-1].zone.length}개</b>
+                    보유도시 : <b class='pcity' id='pcity${i}'>${player_list[i-1].zone}개</b>
                 </div>
             </div>`
         );    
@@ -52,6 +51,7 @@ function game_init(){
     $("input[type=color]").on("change", change_pcl );
     $("#game_state").show();
     $("#set_player").hide();
+    $("#pcity1").css("background","white");
     // 게임 플레이어수에 맞는 말 만들기
     // svg -scalable vector graphics (수학공식을 통해 이미지를 저장,표시)
     // <i class="fa-solid fa-jet-fighter"></i>
@@ -70,9 +70,7 @@ function game_init(){
     }
     create_dice(); //주사위 생성
 }
-
 function create_dice(){ // 화면에 주사위 나타내기
-    var dice =``;
     var dice =`
     <div id='dice_wrap'>
         <div class='dice'>
@@ -90,8 +88,6 @@ function create_dice(){ // 화면에 주사위 나타내기
     `;
     $(".center").append(dice);
 }
-
-
 function overlap(location){ // 말이 생성되거나 이동했을때 위치에 다수의말이 있다면
     //  겹치지 않기 위한 코드를 실행 하는함수
     var len = $(".zone").eq(location).children(".meeple").length;
@@ -105,7 +101,7 @@ function overlap(location){ // 말이 생성되거나 이동했을때 위치에 
         }
     }
 }
-function find_location( n ){// 플레이어 말이 표시될위치 또는 이동할 위치찾기
+function find_location( n ){//몇번째zone클래스? 플레이어 말이 표시될위치 또는 이동할 위치찾기
     var index=0;
     $(".zone").each( function( idx, item ){ 
         var num = Number( $(item).data("num") );//zone클래스 태그의 data-num값
@@ -151,6 +147,7 @@ $(function(){
         zone = data;
         console.log( zone );
         zone_draw();
+        func_link();
     });
     
     $("#enroll").on("click", game_init );
@@ -158,37 +155,53 @@ $(function(){
         $(this).next().text( $(this).val() + "명");
     } );
     $("#player_number + label").text(2+"명");
-    
+    $(".zone").on("click", airport_move);
 });
-
+// 0-복지기금, 8-공항, 16-기금납부, 23-무인도, 31-출발지
 function func_link(){
-    zone[0].func=welfare ;
-    zone[8].func=airport ;
+    zone[0].func=welfare;
+    zone[8].func=airport;
     zone[16].func=fundpayment;
     zone[23].func=island;
-    zone[31].func=complete; 
+    zone[31].func=complete;
 }
-function welfare(gamer){ // 위치에 도착한 플레이어가 복지기금 전액 가져가기 
-    alert(`복지기금 ${fund}만원 받았습니다.`)
-    gamer.money += fund; // fund변수는 복지기금 저장해두는 곳
+function welfare(gamer){  // 위치에 도착한 플레이어가 복지기금 전액 가져가기
+    alert(`복지기금 ${fund}만원 받았습니다.`);
+    gamer.money += fund; // fund변수는 복지기금 저장해두는곳
     fund=0;
     $("#pm"+gamer.num).text( gamer.money+"만원");
 }
-function airport(gamer){ // 플레이어가 원하는곳으로 이동 (마우스 클릭)
-    
+function airport(gamer){// 플레이어가 원하는곳으로 이동(마우스클릭)
+    alert("가고싶은 위치를 선택하세요.");
+    탑승객 = gamer.num;  // 인천공항에 도착한 플레이어 번호 저장,
+                         // 탑승객변수에 있는 번호만 이용가능
 }
-function fundpayment(gamer){// 플레이어의 돈을 복지기금으로 지불 (20만원)
+
+function fundpayment(gamer){//플레이어의 돈을 복지기금으로 지불(20만원)
+    alert("복지기금으로 20만원 지불했습니다.");
     gamer.money -= 20;
     fund += 20;
+    if(gamer.money<20){
+        fund+= gamer.money;
+        gamer.money=0;
+        gamer.파산=true;
+        파산처리(gamer);
+    }else{
+        gamer.money -= 20;
+        fund += 20;
+    }
     $("#pm"+gamer.num).text( gamer.money+"만원");
+
 }
 function island(gamer){// 3턴동안 탈출 불가
 
+    gamer.drift_turn=3;
+    island_.push(gamer.num);
 }
-function complete(gamer){ // 출발지를 도착하거나 통과하면 20만원 보너스 
-
+function complete(gamer){ // 출발지를 도착하거나 통과하면 20만원 보너스
+        gamer.money += 20;
+        $("#pm"+gamer.num).text(gamer.money+"만원");
 }
-
 // 과제    -  각 구역의 객체를 json 으로 작성 해오세요.
 //      city.json   으로 작성 하세요.
 // zone_Object 생성자 함수로  생성한 객체들을 json파일로 작성 
