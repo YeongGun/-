@@ -1,0 +1,753 @@
+/* Desktop - 2 */
+
+position: relative;
+width: 1440px;
+height: 1024px;
+
+background: #FFFFFF;
+
+
+/* Rectangle 1 */
+
+position: absolute;
+width: 1377px;
+height: 49px;
+left: 34px;
+top: 42px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 2 */
+
+position: absolute;
+width: 68px;
+height: 55px;
+left: 34px;
+top: 114px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+width: 854px;
+height: 55px;
+left: 112px;
+top: 114px;
+
+background: #D9D9D9;
+
+
+/* DW Grooming */
+
+position: absolute;
+width: 262px;
+height: 48px;
+left: 408px;
+top: 117px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Rectangle 4 */
+
+position: absolute;
+width: 203px;
+height: 55px;
+left: 976px;
+top: 114px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 5 */
+
+position: absolute;
+width: 222px;
+height: 55px;
+left: 1189px;
+top: 114px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 6 */
+
+position: absolute;
+width: 330px;
+height: 80px;
+left: 259px;
+top: 203px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 7 */
+
+position: absolute;
+width: 330px;
+height: 80px;
+left: 636px;
+top: 203px;
+
+background: #D9D9D9;
+
+
+/* 공지 */
+
+position: absolute;
+width: 74px;
+height: 48px;
+left: 764px;
+top: 215px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* FQA */
+
+position: absolute;
+width: 80px;
+height: 48px;
+left: 384px;
+top: 215px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Group 5 */
+
+position: absolute;
+width: 272px;
+height: 91px;
+left: 112px;
+top: 306px;
+
+
+
+/* Rectangle 9 */
+
+position: absolute;
+width: 272px;
+height: 91px;
+left: 112px;
+top: 306px;
+
+background: #D9D9D9;
+
+
+/* Group 7 */
+
+position: absolute;
+width: 272px;
+height: 91px;
+left: 492px;
+top: 303px;
+
+
+
+/* Rectangle 9 */
+
+position: absolute;
+width: 272px;
+height: 91px;
+left: 492px;
+top: 303px;
+
+background: #D9D9D9;
+
+
+/* Group 8 */
+
+position: absolute;
+width: 272px;
+height: 91px;
+left: 854px;
+top: 306px;
+
+
+
+/* Rectangle 9 */
+
+position: absolute;
+width: 272px;
+height: 91px;
+left: 854px;
+top: 306px;
+
+background: #D9D9D9;
+
+
+/* Group 6 */
+
+position: absolute;
+width: 74px;
+height: 48px;
+left: 599px;
+top: 327px;
+
+
+
+/* 일반 */
+
+position: absolute;
+width: 74px;
+height: 48px;
+left: 599px;
+top: 327px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 전체 */
+
+position: absolute;
+width: 74px;
+height: 48px;
+left: 222px;
+top: 327px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 로그인 |회원가입 */
+
+position: absolute;
+width: 282px;
+height: 34px;
+left: 934px;
+top: 128px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 34px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+
+
+
+/* 장바구니|최근본상품 */
+
+position: absolute;
+width: 207px;
+height: 29px;
+left: 1196px;
+top: 133px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+
+
+
+/* streamline:equal-sign-solid */
+
+position: absolute;
+width: 44px;
+height: 63px;
+left: 46px;
+top: 110px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 25%;
+bottom: 25%;
+
+background: #000000;
+
+
+/* 카카오톡 1초 간편가입 */
+
+position: absolute;
+width: 373px;
+height: 48px;
+left: 529px;
+top: 43px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 이벤트 */
+
+position: absolute;
+width: 111px;
+height: 48px;
+left: 934px;
+top: 324px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Rectangle 29 */
+
+position: absolute;
+width: 230px;
+height: 54px;
+left: 34px;
+top: 431px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 32 */
+
+position: absolute;
+width: 230px;
+height: 83px;
+left: 34px;
+top: 490px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 44 */
+
+position: absolute;
+width: 224px;
+height: 83px;
+left: 1179px;
+top: 490px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 45 */
+
+position: absolute;
+width: 224px;
+height: 78px;
+left: 1179px;
+top: 583px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 46 */
+
+position: absolute;
+width: 224px;
+height: 81px;
+left: 1179px;
+top: 668px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 47 */
+
+position: absolute;
+width: 224px;
+height: 79px;
+left: 1179px;
+top: 758px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 48 */
+
+position: absolute;
+width: 224px;
+height: 79px;
+left: 1179px;
+top: 846px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 49 */
+
+position: absolute;
+width: 224px;
+height: 90px;
+left: 1179px;
+top: 934px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 38 */
+
+position: absolute;
+width: 870px;
+height: 83px;
+left: 295px;
+top: 490px;
+
+background: #4C86DD;
+
+
+/* Rectangle 39 */
+
+position: absolute;
+width: 870px;
+height: 83px;
+left: 295px;
+top: 578px;
+
+background: #9FB0EB;
+
+
+/* Rectangle 40 */
+
+position: absolute;
+width: 870px;
+height: 79px;
+left: 295px;
+top: 670px;
+
+background: #4C86DD;
+
+
+/* Rectangle 41 */
+
+position: absolute;
+width: 870px;
+height: 75px;
+left: 295px;
+top: 762px;
+
+background: #9FB0EB;
+
+
+/* Rectangle 42 */
+
+position: absolute;
+width: 869px;
+height: 80px;
+left: 296px;
+top: 850px;
+
+background: #4C86DD;
+
+
+/* Rectangle 43 */
+
+position: absolute;
+width: 870px;
+height: 75px;
+left: 295px;
+top: 938px;
+
+background: #9FB0EB;
+
+
+/* Rectangle 33 */
+
+position: absolute;
+width: 230px;
+height: 83px;
+left: 34px;
+top: 578px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 34 */
+
+position: absolute;
+width: 230px;
+height: 83px;
+left: 34px;
+top: 666px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 35 */
+
+position: absolute;
+width: 230px;
+height: 83px;
+left: 34px;
+top: 754px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 36 */
+
+position: absolute;
+width: 230px;
+height: 83px;
+left: 34px;
+top: 842px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 37 */
+
+position: absolute;
+width: 230px;
+height: 83px;
+left: 34px;
+top: 930px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 31 */
+
+position: absolute;
+width: 224px;
+height: 68px;
+left: 1179px;
+top: 415px;
+
+background: #D9D9D9;
+
+
+/* 작성일 */
+
+position: absolute;
+width: 111px;
+height: 48px;
+left: 1232px;
+top: 433px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Rectangle 30 */
+
+position: absolute;
+width: 870px;
+height: 56px;
+left: 295px;
+top: 425px;
+
+background: #D9D9D9;
+
+
+/* 제목 */
+
+position: absolute;
+width: 74px;
+height: 48px;
+left: 670px;
+top: 429px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 번호 */
+
+position: absolute;
+width: 74px;
+height: 48px;
+left: 112px;
+top: 442px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 6 */
+
+position: absolute;
+width: 25px;
+height: 48px;
+left: 137px;
+top: 508px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 5 */
+
+position: absolute;
+width: 25px;
+height: 48px;
+left: 137px;
+top: 596px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 4 */
+
+position: absolute;
+width: 26px;
+height: 48px;
+left: 136px;
+top: 684px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 3 */
+
+position: absolute;
+width: 26px;
+height: 48px;
+left: 136px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 2 */
+
+position: absolute;
+width: 25px;
+height: 48px;
+left: 137px;
+top: 864px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* 1 */
+
+position: absolute;
+width: 19px;
+height: 48px;
+left: 139px;
+top: 948px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+
