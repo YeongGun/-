@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중고 악기 판매점</title>
+    <link rel="stylesheet" href="악기.css">
+    <script src="./악기.js"></script>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            /* 그라디언트 배경 추가 */
+            background: linear-gradient(to bottom, #333, #444);
+        }
+
+        /* 내비게이션 스타일 */
+        nav {
+            background-color: #666;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            /* 호버 효과 추가 */
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        /* 메인 콘텐츠 스타일 */
+        .main-content {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            /* 그림자 효과 추가 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* 모서리 둥글게 */
+            border-radius: 10px;
+        }
+
+        /* 슬라이드쇼 스타일 */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        /* 추가 슬라이드 이미지 */
+        .mySlides {
+            display: none;
+            text-align: center;
+        }
+
+        /* 이미지 전환 버튼 스타일 */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* 메인 이미지 갤러리 스타일 */
+        .main.images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+
+        .main.images img {
+            width: 100%;
+            height: auto;
+            /* 이미지에 호버 효과 추가 */
+            transition: transform 0.3s ease;
+        }
+
+        .main.images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            /* 푸터에 마우스 호버 시 색상 변경 */
+            transition: background-color 
+        }
+        .price {
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .price span {
+        font-weight: bold;
+        color: #333;
+        font-size: 18px;
+    }
+
+    .price:before {
+        content: "₩: ";
+        font-weight: bold;
+        color: #666;
+        font-size: 14px;
+    }
+    /* 구매 버튼 스타일 */
+    .buy-button {
+        padding: 10px 85px; /* 버튼 내부 여백을 조절하여 크기를 조절합니다. */
+        font-size: 16px; /* 버튼 텍스트 크기를 조절합니다. */
+        border: none; /* 버튼 테두리를 없앱니다. */
+        background-color: #4CAF50; /* 버튼 배경색을 설정합니다. */
+        color: white; /* 버튼 텍스트 색상을 설정합니다. */
+        border-radius: 5px; /* 버튼의 모서리를 둥글게 만듭니다. */
+        cursor: pointer; /* 마우스를 올렸을 때 커서 모양을 포인터로 변경합니다. */
+        transition: background-color 0.3s; /* 호버 효과를 추가합니다. */
+    }
+
+    .buy-button:hover {
+        background-color: #45a049; /* 호버 시 배경색을 변경합니다. */
+    }        
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="images/로고.jpg" alt="로고">
+    <h1>보유중인 악기</h1>
+</header>
+
+<nav>
+    <a href="#">기타</a>
+    <ul>
+        <li><a href="#">콜트</a></li>
+        <li><a href="#">펜더</a></li>
+        <li><a href="#">깁슨</a></li>
+        <li><a href="#">리튼하우스</a></li>
+        <li><a href="#">아이바네즈</a></li>        
+    </ul>  
+    <a href="#">드럼</a>
+    <ul>
+        <li><a href="#">야마하</a></li>
+        <li><a href="#">롤랜드</a></li>
+        <li><a href="#">소노</a></li>
+        <li><a href="#">Dw</a></li>        
+    </ul>  
+    <a href="#">건반</a>
+    <ul>
+        <li><a href="#">야마하</a></li>
+        <li><a href="#">삼익</a></li>
+        <li><a href="#">영창</a></li>
+        <li><a href="#">스타인웨이</a></li>        
+    </ul>  
+    <a href="#">레코딩</a>
+    <ul>
+        <li><a href="#">앰프</a></li>
+        <li><a href="#">이펙터</a></li>         
+        <li><a href="#">오디오인터페이스</a></li>        
+    </ul>  
+    <a href="#">바이올린</a>
+    <ul>
+        <li><a href="#">삼익</a></li>
+        <li><a href="#">영창</a></li>
+        <li><a href="#">야마하</a></li>        
+    </ul>  
+    <a href="#">서적</a>
+    <ul>
+        <li><a href="#">스즈키</a></li>        
+        <li><a href="#">화성학</a></li>
+        <li><a href="#">시청각청음</a></li>
+        <li><a href="#">실용음악통론</a></li>
+    </ul>    
+</nav>
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="images/Yamaha1.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="images/Yamaha2.png" style="width:100%">
+    </div>          
+    
+
+    <!-- 추가 이미지에 대한 mySlides 클래스의 div 추가 -->
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div class = "main images">    
+    <div>
+        <img src="images/Yamaha 앰프 THR10.jpg">
+        <p class="price"><span>500,000</span></p>
+        <button class="buy-button" onclick="purchase('Yamaha 앰프 THR10', '500,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src ="images/Fender 앰프 Champion20.jpg">
+    <p class="price"><span>250,000</span></p>
+    <button class="buy-button" onclick="purchase('Fender 앰프 Champion20', '250,000')">구매</button>
+    </div>
+    <div>
+    <img src = "images/에릭클랩튼.jpg">
+    <p class="price"><span>2500,000</span></p>
+    <button class="buy-button" onclick="purchase('에릭클랩튼 시그네쳐 기타', '2500,000')">구매</button>
+    </div>
+
+    <div>
+    <img src = "images/스타인웨이.jpg">
+    <p class="price"><span>250000,000</span></p>
+    <button class="buy-button" onclick="purchase('스타인웨이 피아노', '250000,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/존메이어.jpg">
+    <p class="price"><span>3000,000</span></p>
+    <button class="buy-button" onclick="purchase('존메이어 시그네쳐 기타', '3000,000')">구매</button>
+    </div>    
+    
+    <div>
+    <img src = "images/깁슨.jpg">
+    <p class="price"><span>2200,000</span></p>
+    <button class="buy-button" onclick="purchase('깁슨', '2200,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/소노 드럼.jpg">
+    <p class="price"><span>1600,000</span></p>
+    <button class="buy-button" onclick="purchase('소노 드럼', '1600,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/롤랜드 드럼.jpg">
+    <p class="price"><span>1800,000</span></p>
+    <button class="buy-button" onclick="purchase('롤랜드 드럼', '1800,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/바이올린.jpg">
+    <p class="price"><span>180,000</span></p>
+    <button class="buy-button" onclick="purchase('삼익 바이올린', '180,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/바이올린2.jpg">
+    <p class="price"><span>380,000</span></p>
+    <button class="buy-button" onclick="purchase('스즈키 바이올린', '380,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/마커스 밀러.jpg">
+    <p class="price"><span>2300,000</span></p>
+    <button class="buy-button" onclick="purchase('마커스 밀러 시그네쳐 기타', '2300,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/오인페.jpg">
+    <p class="price"><span>330,000</span></p>
+    <button class="buy-button" onclick="purchase('오디오인터페이스', '330,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/스즈키.jpg">
+    <p class="price"><span>280,000</span></p>
+    <button class="buy-button" onclick="purchase('스즈키', '280,000')">구매</button>
+    </div>
+    
+    <div>
+        <img src = "images/스즈키 교본.jpg">
+        <p class="price"><span>8,000</span></p>
+        <button class="buy-button" onclick="purchase('스즈키 교본', '8,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/실용음악 통론.jpg">
+    <p class="price"><span>12,000</span></p>
+    <button class="buy-button" onclick="purchase('실용음악 통론', '12,000')">구매</button>
+    </div>
+    
+    <div>
+        <img src = "images/멀티이펙터.jpg">
+        <p class="price"><span>112,000</span></p>
+        <button class="buy-button" onclick="purchase('멀티이펙터', '112,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/페달 이펙터.jpg">
+    <p class="price"><span>89,000</span></p>
+    <button class="buy-button" onclick="purchase('페달 이펙터', '89,000')">구매</button>
+    </div>
+
+    <div>
+    <img src = "images/보스 이펙터.jpg">
+    <p class="price"><span>68,000</span></p>
+    <button class="buy-button" onclick="purchase('보스 이펙터', '68,000')">구매</button>
+    </div>
+    
+    <div>
+        <img src = "images/아이바네즈.jpg">
+        <p class="price"><span>768,000</span></p>
+        <button class="buy-button" onclick="purchase('아이바네즈', '768,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/콜트.jpg">
+    <p class="price"><span>560,000</span></p>
+    <button class="buy-button" onclick="purchase('콜트', '560,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/dw.jpg">
+    <p class="price"><span>482,000</span></p>
+    <button class="buy-button" onclick="purchase('dw드럼', '482,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/삼익 건반.jpg">
+    <p class="price"><span>689,000</span></p>
+    <button class="buy-button" onclick="purchase('삼익 건반', '689,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/야마하 건반.jpg">
+    <p class="price"><span>482,000</span></p>
+    <button class="buy-button" onclick="purchase('야마하 건반', '482,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/영창 피아노.jpg">
+    <p class="price"><span>1120,000</span></p>
+    <button class="buy-button" onclick="purchase('영창 피아노', '1120,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/화성학.jpg">
+    <p class="price"><span>20,000</span></p>
+    <button class="buy-button" onclick="purchase('화성학', '20,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/시창청음.jpg">
+    <p class="price"><span>16,000</span></p>
+    <button class="buy-button" onclick="purchase('시창청음', '16,000')">구매</button>
+    </div>
+    
+    <div>
+    <img src = "images/아프로톤.jpg">
+    <p class="price"><span>140000</span></p>
+    <button class="buy-button" onclick="purchase('아프로톤', '140,000')">구매</button>
+    </div>     
+</div>
+
+<div class="main-content">
+    <h2>전화번호 | 010-7547-6751</h2>
+    <p>KB국민은행 352-1404-4449-93</p>
+    <p>예금주 : 여영근</p>
+</div>
+
+<footer>
+    <p>© 2024 중고 악기 판매점. All.</p>
+</footer>
+
+</body>
+</html>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 4000); // 이미지 전환 속도 
+    }
+    
+
+    
+      // Get the modal
+  var modal = document.getElementById("modal");
+
+// Get the image and insert it inside the modal
+var images = document.querySelectorAll(".main.images img");
+var modalImg = document.getElementById("modal-image");
+var modalDescription = document.getElementById("modal-description");
+var modalPrice = document.getElementById("modal-price");
+
+images.forEach(function(img) {
+  img.onclick = function() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalDescription.textContent = this.alt; // You can set the product description here
+    modalPrice.textContent = this.nextElementSibling.querySelector("span").textContent; // Assuming price is in the next sibling with span element
+  }
+});
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+  let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 8000); // 이미지 전환 속도 
+    }
+}
+
+
+
+</script>

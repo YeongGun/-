@@ -1,0 +1,99 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header Style */
+.header {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav1 li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.nav1 li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.icon_img {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.icon_img img {
+    width: 450px; /* Adjust as needed */
+}
+
+/* Navigation Style */
+.nav2 {
+    list-style-type: none;
+    padding: 0;
+    background-color: #333;
+    text-align: center;
+}
+
+.nav2 li {
+    display: inline-block;
+    position: relative;
+}
+
+.nav2 li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav2 li:hover {
+    background-color: #555;
+}
+
+.nav2 ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    padding: 0;
+}
+
+.nav2 ul li {
+    display: block;
+}
+
+.nav2 li:hover ul {
+    display: block;
+}
+
+/* Main Image Style */
+.mian_img {
+    text-align: center;
+    
+}
+
+.mian_img img {
+    width: 100%; /* Adjust as needed */
+    margin-bottom: 0px;
+    position: grid;
+}
+
+/* Footer Style */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
